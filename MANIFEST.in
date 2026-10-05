@@ -1,0 +1,3 @@
+include README.zh-CN.md requirements.txt requirements-lock.txt
+recursive-include examples *.csv *.json
+recursive-include docs *.md

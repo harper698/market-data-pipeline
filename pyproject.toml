@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "market-data-pipeline"
+version = "1.0.0"
+description = "Resilient daily market-data ingestion with explicit quality checks and SQLite persistence."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["pandas>=2.2,<3", "numpy>=1.26,<2.4", "requests>=2.32.4,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1,<2"]
+
+[project.scripts]
+marketpipe = "marketpipe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
